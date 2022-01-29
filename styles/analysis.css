@@ -1,0 +1,10 @@
+.reference-list {
+  counter-reset: list;
+}
+.reference-list > li {
+  list-style: none;
+}
+.reference-list > li:before {
+  content: "[" counter(list) "] ";
+  counter-increment: list;
+}

@@ -1,0 +1,59 @@
+/* 
+This document is the main stylesheet and will be sectioned into common styles, header, main content, footer, and responsive/device dependent. 
+*/
+:root {
+  --text-color: #1e272e;
+  --site-bg-color: whitesmoke;
+  --content-bg-color: whitesmoke;
+}
+
+html {
+  font-family: "MuseoSans_500", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+/* Here we set the width of the content area and basic common attributes.
+We also use box-shadow with offset x and y to zero and a blur radius of 3px to create a soft contour around the content area. 
+*/
+.content-wrapper {
+  background-color: var(--content-bg-color);
+  width: clamp(10px, 60%, 960px);
+  box-shadow: 0px 0px 3px lightgrey;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bree Serif", "Times New Roman", Times, serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.6rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+/* Using flexbox for centering the content on the page */
+.page-wrapper {
+  background-color: var(--site-bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+/* Header Section START */
+
+/* Header Section END */
+
+/* Main Section START */
+
+/* Main Section END */
+
+/* Footer Section START */
+
+/* Footer Section END */

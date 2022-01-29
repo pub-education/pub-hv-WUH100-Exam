@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Johannesson" />
+    <meta name="description" content="Examinationsupgift WUH100 VT2022" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <title>Chris Johannesson</title>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="content-wrapper">
+            <header>
+                Header
+            </header>
+            <main>
+                <article>
+                    <h1>Process analysis</h1>
+                    <p>Much of what I write is from experience and even though I of course learned it from various
+                        sources it was a long time ago and impossible to remember where it all came from. However,
+                        things that I look up and take from books during the process now I will provide references to.
+                    </p>
+                    <section>
+                        <h2>HTML layout</h2>
+                        <h3>Overview</h3>
+                        <p>
+                            Using the provided modeled layout we have three sections a header, main, and footer. So, we
+                            start with entering those using the new elements from HTML5 header, main, and footer,
+                            wrapped in two div elements with classes page-wrapper and content-wrapper.
+                        </p>
+                        <p>
+                            As we will only use elements that has been around for a long time and some of the new
+                            sematic elements we find that support is almost universal even in many older browsers, as is
+                            evident from <a href="https://caniuse.com/?search=html5">caniuse.com</a> <a
+                                href="#ref-1">[1]</a>, we therefore
+                            chose to
+                            use HTML5 . The idea of using other designs than 1. for ordered list items was taken from an
+                            answer in <a
+                                href="https://stackoverflow.com/questions/22530982/html-numbering-with-brackets"
+                                target="_self">stackoverflow.com</a> <a href="#ref-2">[2]</a>
+                            The
+                            pages are also saved as .html files as opposed to .xhtml which means they will not be parsed
+                            by the XML parser but the DOM will be created by the less stringent HTML parser.
+                        </p>
+                        <p>
+                            I have chosen to use the IEEE reference system as described in the <a
+                                href="https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Reference-Guide-Online-v.04-20-2021.pdf">IEEE
+                                Reference Guide</a> <a href="#ref-3">[3]</a>.
+                        </p>
+                        <h3>Header</h3>
+                        <p>
+                            The header section can be divided into two main parts, logo and navigation. We separate
+                            those by
+                            putting them into a div and a nav element respectively so we can position them easier later
+                            on.
+                        </p>
+                        <h3>Main Section</h3>
+                        <p>
+                            The main section where all content will go can be seen as divided into two main areas. An
+                            upper
+                            helo image with an overlayed text section and the main content section containing no less
+                            than
+                            three columns since you wanted the middle to move to the top for smaller screens. So, we
+                            section
+                            this off with two div elements to start with and then we add three section elements to the
+                            lower
+                            div to use for the three columns.
+                        </p>
+                        <p>
+                            Each of the section elements contains an image and a few paragraphs of text. We section
+                            these off with two div elements and put an image element in the top one and three p elements
+                            in the lower.
+                        </p>
+                        <h3>Footer</h3>
+                        <p>
+                            The footer is divided into three columns each containing a head and text. We section it off
+                            with
+                            three div elements and put a h3 element and an ul section in each to make the text align
+                            nicely when we make it into a list.
+                        </p>
+                        <hr />
+                        <p>
+                            With this we are done with the initial markup of the home page and the header and footer.
+                            Header and footer
+                            will be copied to subsequent pages so that we will have consistency in the feel and look of
+                            the site. We cannot use JavaScript to change content as needed nor server-side code to
+                            assemble pages on request in this particular assignment. We might tweak it later
+                            on if we need to in order to make it behave and look the way we
+                            want.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>The Stylesheet Development Process</h2>
+                        <h3>Main setup</h3>
+                        <p>
+                            I tend to try to write my stylesheets in separate files that each belongs to a specific
+                            section or component of the webpage/site. E.g. page, navigation, footer and main content.
+                            Hence, the main style sheet is called styles.css where I link in the other stylesheets in
+                            order. It also links in a reset stylesheet that removes and resets all padding, margins,
+                            borders, etc and makes sure that we are using box-sizing border-box instead of the default
+                            content-box. Why? Because it's much easier to calculate the sizes of elements when content,
+                            padding, and borders are included in the size and we only have to accommodate for margins.
+                            Important to remember is that we first import the reset stylesheet, otherwise we will have
+                            problems since the styles are applied in the order they appear. :)
+                            However, since the requirement here is to contain all styling in one document I will instead
+                            section off that document into sections for header, main content, and footer.
+                            The styling for the Analysis page will however be in a separate document as will the fonts.
+                        </p>
+                        <p>
+                            We use css variables for the colors we want to use which makes it easier to change later on
+                            if we need to.
+                        </p>
+                    </section>
+                </article>
+
+                <section>
+                    <h2><span class="size-1-5">R</span>EFERENCES</h2>
+                    <div>
+                        <ol class="reference-list">
+                            <li id="ref-1">"Can I use... Support tables for HTML5, CSS3, etc" caniuse.com.
+                                https://caniuse.com/?search=html5 (accessed Jan. 28, 2022).</li>
+                            <li id="ref-1">Tanner. "HTML numbering with brackets" stackoverflow.com.
+                                https://stackoverflow.com/questions/22530982/html-numbering-with-brackets (accessed
+                                Jan. 28, 2022).</li>
+                            <li id="ref-3">"IEEE REFERENCE GUIDE" V 01.29.2021 available on
+                                https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Reference-Guide-Online-v.04-20-2021.pdf
+                            </li>
+                        </ol>
+                    </div>
+
+                </section>
+
+            </main>
+            <footer>
+                <div class="footer-address">
+                    <h3>Address</h3>
+                    <ul>
+                        <li>Somestreet 123</li>
+                        <li>Lala-Land, 123 45 Knorway</li>
+                    </ul>
+                </div>
+                <div class="footer-telephone">
+                    <h3>Telephones</h3>
+                    <ul>
+                        <li>+46 123 234 345</li>
+                        <li>+63 2 3456 345</li>
+                    </ul>
+                </div>
+                <div class="footer-email">
+                    <h3>Email Addresses</h3>
+                    <ul>
+                        <li>seymore.butt@student.hv.se</li>
+                        <li>some.other@funny.guy</li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+</html>
