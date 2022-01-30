@@ -108,10 +108,32 @@
                             However, since the requirement here is to contain all styling in one document I will instead
                             section off that document into sections for header, main content, and footer.
                             The styling for the Analysis page will however be in a separate document as will the fonts.
+                            I've tried to find the source of my reset.css but I can't find it.I've had the file a long
+                            time and can't remember where or when I got it, hence no reference.
                         </p>
                         <p>
                             We use css variables for the colors we want to use which makes it easier to change later on
                             if we need to.
+                        </p>
+                        <h3>Header Section</h3>
+                        <p>
+                            Starting with sizing the logo image to 200px.
+                            Then we make the containing header element a flexbox and chose space-between for the
+                            justify-content directive so we put logo and navigation at each end of the box.
+                            Then remvove the bullets in front of each item and set the li elements inline. Then we set
+                            their hovering response. To use more than one property in transitions see <a
+                                href="https://stackoverflow.com/questions/7048313/how-to-have-multiple-css-transitions-on-an-element">StackOverflow.com</a>
+                            <a href="#ref-4">[4]</a>.
+                        </p>
+                        <p>
+                            Next up is the main / content section We start with the helo image and and put that in a new
+                            div element. Then we put the p element inside two new divs so that we can place it and get a
+                            faded background for the text making it stick ou a little better over the image.
+                            Then it time for the three little content cards with their images. They are already in
+                            separate sections tags that we use here instead of div tags since HTML5 has made these new
+                            semantic elements available to us. First, we will make the containing div element a flexbox
+                            so we can place the different sections as we wish. Could just as well have done this with
+                            grids. I might do another version later using grids instead of flexbox just for fun.
                         </p>
                     </section>
                 </article>
@@ -127,6 +149,10 @@
                                 Jan. 28, 2022).</li>
                             <li id="ref-3">"IEEE REFERENCE GUIDE" V 01.29.2021 available on
                                 https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Reference-Guide-Online-v.04-20-2021.pdf
+                            </li>
+                            <li id="ref-4">coreyward. "How to have multiple CSS transitions on an element?"
+                                https://stackoverflow.com/questions/7048313/how-to-have-multiple-css-transitions-on-an-element
+                                (accessed Jan. 29, 2022).
                             </li>
                         </ol>
                     </div>

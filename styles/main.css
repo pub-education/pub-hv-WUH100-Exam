@@ -5,6 +5,9 @@ This document is the main stylesheet and will be sectioned into common styles, h
   --text-color: #1e272e;
   --site-bg-color: whitesmoke;
   --content-bg-color: whitesmoke;
+  --header-bg-color: #c6ecef;
+  --footer-bg-color: #c6ecef;
+  --nav-hover-color: #130f40;
 }
 
 html {
@@ -13,12 +16,12 @@ html {
   font-weight: 400;
   color: var(--text-color);
 }
-/* Here we set the width of the content area and basic common attributes.
+/* Here we set the width of the content area and make it reactive from the start. At 960px width and lower it will fill out the entire width down to 10px.
 We also use box-shadow with offset x and y to zero and a blur radius of 3px to create a soft contour around the content area. 
 */
 .content-wrapper {
   background-color: var(--content-bg-color);
-  width: clamp(10px, 60%, 960px);
+  width: clamp(10px, 100%, 960px);
   box-shadow: 0px 0px 3px lightgrey;
 }
 h1,
@@ -47,11 +50,139 @@ h3 {
 }
 
 /* Header Section START */
+/*
+Set up the containing element for the header as fexbox and give it a little padding.
+*/
+header {
+  background-color: var(--header-bg-color);
+}
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 2rem;
+  /* margin-bottom: -100%; */
+  background-color: rgba(245, 245, 245, 0.5);
+  z-index: 100;
+}
+.logo img {
+  width: 200px;
+}
+/* Using flexbox to vertically center the menu in the header */
+.navigation {
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+/* 
+creating a smoother transition between the hovered and normal state and removing the underline on the link because I don't like it.
+*/
+.navigation a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 700ms 20ms, font-weight 700ms 20ms;
+}
+.navigation a:hover {
+  color: var(--nav-hover-color);
+  font-weight: 700;
+}
+/* removing bullets from list element. */
+.navigation ul {
+  list-style: none;
+}
+/* using em instead of rem to target the actual font-size in the element not the page default, set in the html element in this case. */
+.navigation ul li {
+  display: inline;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
 
 /* Header Section END */
 
 /* Main Section START */
-
+.card-image {
+  /* position: relative; */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.7rem solid var(--site-bg-color);
+  width: clamp(20px, calc(100vw / 3 * 0.6), calc(960px / 3 * 0.6));
+  height: clamp(20px, calc(100vw / 3 * 0.6), calc(960px / 3 * 0.6));
+  z-index: 100;
+}
+.card-text {
+  margin-top: -5em;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  z-index: 50;
+}
+/* Container for the three columns. */
+.main-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+.main-content section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 0.5rem;
+}
+/* creates a smooth border around each card. */
+.main-content section div {
+  box-shadow: 0 0 3px lightgrey;
+}
+/* create a distance between the paragraphs in each card. */
+.main-content section div p {
+  margin-bottom: 0.5em;
+}
+.main-content section div p:first-child {
+  margin-top: 8em;
+}
+/* remove margin-bottom for the last p element for estetical reasons. */
+.main-content section div p:last-child {
+  margin-bottom: 0px;
+}
+/* we set the position here to relative so that we can place the text section on top of the image. */
+.main-helo {
+  position: relative;
+  margin-bottom: -3rem;
+  z-index: 0;
+}
+/*
+Set this positioning to absolute so we can move it on top of the helo image. We position it in the top and right corner of the containing div. Then we make it a flebox so we easily can center the content. We also make sure that it keeps a width of 50% of the containing element at all viewport sizes.
+*/
+.main-helo-text {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(10px, 50%, 50%);
+}
+/*
+This will be a backgournd for the text. We make it somewhat trasnperent with the alpha value of the rgba value. We also give it rounded corners and make sure it will never be closer to the right side than 5% of the containing elements width.
+*/
+.main-helo-text div {
+  background-color: rgba(169, 196, 197, 0.6);
+  border-radius: 2em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/* 
+We set a little larger font size align the text to the center and move it on top of the containing element.
+*/
+.main-helo-text p {
+  padding: 1em 1em;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.section > {
+  border-radius: 50%;
+}
+.text-abstract {
+  font-weight: 700;
+}
 /* Main Section END */
 
 /* Footer Section START */
