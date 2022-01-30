@@ -3,6 +3,7 @@ This document is the main stylesheet and will be sectioned into common styles, h
 */
 :root {
   --text-color: #1e272e;
+  --text-faded: grey;
   --site-bg-color: whitesmoke;
   --content-bg-color: whitesmoke;
   --header-bg-color: #c6ecef;
@@ -23,6 +24,9 @@ We also use box-shadow with offset x and y to zero and a blur radius of 3px to c
   background-color: var(--content-bg-color);
   width: clamp(10px, 100%, 960px);
   box-shadow: 0px 0px 3px lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 h1,
 h2,
@@ -55,16 +59,11 @@ Set up the containing element for the header as fexbox and give it a little padd
 */
 header {
   background-color: var(--header-bg-color);
-}
-.header-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   padding: 1rem 2rem;
-  /* margin-bottom: -100%; */
-  background-color: rgba(245, 245, 245, 0.5);
-  z-index: 100;
 }
 .logo img {
   width: 200px;
@@ -73,7 +72,7 @@ header {
 .navigation {
   display: flex;
   align-items: center;
-  z-index: 100;
+  /* z-index: 100; */
 }
 /* 
 creating a smoother transition between the hovered and normal state and removing the underline on the link because I don't like it.
@@ -102,7 +101,6 @@ creating a smoother transition between the hovered and normal state and removing
 
 /* Main Section START */
 .card-image {
-  /* position: relative; */
   border-radius: 50%;
   overflow: hidden;
   border: 0.7rem solid var(--site-bg-color);
@@ -160,22 +158,17 @@ Set this positioning to absolute so we can move it on top of the helo image. We 
   align-items: center;
   width: clamp(10px, 50%, 50%);
 }
-/*
-This will be a backgournd for the text. We make it somewhat trasnperent with the alpha value of the rgba value. We also give it rounded corners and make sure it will never be closer to the right side than 5% of the containing elements width.
-*/
-.main-helo-text div {
-  background-color: rgba(169, 196, 197, 0.6);
-  border-radius: 2em;
-  margin-left: 5%;
-  margin-right: 5%;
-}
 /* 
-We set a little larger font size align the text to the center and move it on top of the containing element.
+We set a little larger font size align the text to the center and move it on top of the containing element. Then we make it somewhat transparent with the alpha value of the rgba value. We also give it rounded corners and make sure it will never be closer to the right side than 5% of the containing elements width.
 */
 .main-helo-text p {
   padding: 1em 1em;
   font-size: 1.4rem;
   text-align: center;
+  background-color: rgba(169, 196, 197, 0.6);
+  border-radius: 2em;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .section > {
   border-radius: 50%;

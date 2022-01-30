@@ -1,3 +1,6 @@
+.analysis-main {
+  padding: 2rem 1rem;
+}
 .reference-list {
   counter-reset: list;
 }
@@ -7,4 +10,8 @@
 .reference-list > li:before {
   content: "[" counter(list) "] ";
   counter-increment: list;
+}
+.text-comment {
+  font-style: italic;
+  color: var(--text-faded);
 }

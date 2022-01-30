@@ -13,37 +13,53 @@
 <body>
     <div class="page-wrapper">
         <div class="content-wrapper">
-            <header>
-                Header
+            <header class="page-header">
+                <div class="logo">
+                    <img src="images/chris johannesson.png" alt="Text Chris Johannesson" width="200" />
+                </div>
+                <nav class="navigation">
+                    <!--
+                                    I'm going to use a simple unordered list for the menu. Because, it's easy to do and I can arrange the links the way I want them. It could of course have been solved in numerous other ways too with buttons, input elements, simple a elements etc etc.
+                                -->
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html">Analysis</a></li>
+                        <li><a href="index.html">Dummy 1</a></li>
+                        <li><a href="index.html">Dummy 2</a></li>
+                    </ul>
+                </nav>
             </header>
-            <main>
+            <main class="analysis-main">
                 <article>
                     <h1>Process analysis</h1>
                     <p>Much of what I write is from experience and even though I of course learned it from various
                         sources it was a long time ago and impossible to remember where it all came from. However,
-                        things that I look up and take from books during the process now I will provide references to.
+                        things that I look up and take from books during the process now I will provide references
+                        to.
                     </p>
                     <section>
                         <h2>HTML layout</h2>
                         <h3>Overview</h3>
                         <p>
-                            Using the provided modeled layout we have three sections a header, main, and footer. So, we
-                            start with entering those using the new elements from HTML5 header, main, and footer,
+                            Using the provided modeled layout we have three sections a header, main, and footer. So,
+                            we
+                            start with entering those using the new semantic elements from HTML5 header, main, and
+                            footer,
                             wrapped in two div elements with classes page-wrapper and content-wrapper.
                         </p>
                         <p>
-                            As we will only use elements that has been around for a long time and some of the new
-                            sematic elements we find that support is almost universal even in many older browsers, as is
-                            evident from <a href="https://caniuse.com/?search=html5">caniuse.com</a> <a
-                                href="#ref-1">[1]</a>, we therefore
-                            chose to
-                            use HTML5 . The idea of using other designs than 1. for ordered list items was taken from an
+                            We will be using HTML5 because it's a standard which support is almost universal even in
+                            many older browsers, as is evident from <a
+                                href="https://caniuse.com/?search=html5">caniuse.com</a> <a href="#ref-1">[1]</a>.
+                            The
+                            idea of using other designs than &quot;1.&quot; for ordered list items was taken from an
                             answer in <a
                                 href="https://stackoverflow.com/questions/22530982/html-numbering-with-brackets"
-                                target="_self">stackoverflow.com</a> <a href="#ref-2">[2]</a>
+                                target="_self">stackoverflow.com</a> <a href="#ref-2">[2]</a>.
                             The
-                            pages are also saved as .html files as opposed to .xhtml which means they will not be parsed
-                            by the XML parser but the DOM will be created by the less stringent HTML parser.
+                            pages are also saved as .html files as opposed to .xhtml which means they will not be
+                            parsed
+                            by the XML parser but the DOM will be created by the HTML parser.
                         </p>
                         <p>
                             I have chosen to use the IEEE reference system as described in the <a
@@ -54,38 +70,46 @@
                         <p>
                             The header section can be divided into two main parts, logo and navigation. We separate
                             those by
-                            putting them into a div and a nav element respectively so we can position them easier later
+                            putting them into a div and a nav element respectively so we can position them easier
+                            later
                             on.
                         </p>
                         <h3>Main Section</h3>
                         <p>
-                            The main section where all content will go can be seen as divided into two main areas. An
+                            The main section where all content will go can be seen as divided into two main areas.
+                            An
                             upper
-                            helo image with an overlayed text section and the main content section containing no less
+                            helo image with an overlayed text section and the main content section containing no
+                            less
                             than
                             three columns since you wanted the middle to move to the top for smaller screens. So, we
                             section
-                            this off with two div elements to start with and then we add three section elements to the
+                            this off with two div elements to start with and then we add three section elements to
+                            the
                             lower
                             div to use for the three columns.
                         </p>
                         <p>
                             Each of the section elements contains an image and a few paragraphs of text. We section
-                            these off with two div elements and put an image element in the top one and three p elements
+                            these off with two div elements and put an image element in the top one and three p
+                            elements
                             in the lower.
                         </p>
                         <h3>Footer</h3>
                         <p>
-                            The footer is divided into three columns each containing a head and text. We section it off
+                            The footer is divided into three columns each containing a head and text. We section it
+                            off
                             with
                             three div elements and put a h3 element and an ul section in each to make the text align
                             nicely when we make it into a list.
                         </p>
                         <hr />
                         <p>
-                            With this we are done with the initial markup of the home page and the header and footer.
+                            With this we are done with the initial markup of the home page and the header and
+                            footer.
                             Header and footer
-                            will be copied to subsequent pages so that we will have consistency in the feel and look of
+                            will be copied to subsequent pages so that we will have consistency in the feel and look
+                            of
                             the site. We cannot use JavaScript to change content as needed nor server-side code to
                             assemble pages on request in this particular assignment. We might tweak it later
                             on if we need to in order to make it behave and look the way we
@@ -97,43 +121,88 @@
                         <h3>Main setup</h3>
                         <p>
                             I tend to try to write my stylesheets in separate files that each belongs to a specific
-                            section or component of the webpage/site. E.g. page, navigation, footer and main content.
-                            Hence, the main style sheet is called styles.css where I link in the other stylesheets in
+                            section or component of the webpage/site. E.g. page, navigation, footer and main
+                            content.
+                            Hence, the main style sheet is called styles.css where I link in the other stylesheets
+                            in
                             order. It also links in a reset stylesheet that removes and resets all padding, margins,
-                            borders, etc and makes sure that we are using box-sizing border-box instead of the default
-                            content-box. Why? Because it's much easier to calculate the sizes of elements when content,
-                            padding, and borders are included in the size and we only have to accommodate for margins.
-                            Important to remember is that we first import the reset stylesheet, otherwise we will have
-                            problems since the styles are applied in the order they appear. :)
-                            However, since the requirement here is to contain all styling in one document I will instead
+                            borders, etc and makes sure that we are using box-sizing border-box instead of the
+                            default
+                            content-box. Why? Because it's much easier to calculate the sizes of elements when
+                            content,
+                            padding, and borders are included in the size and we only have to accommodate for
+                            margins.
+                            Important to remember is that we first import the reset stylesheet, otherwise we will
+                            have
+                            problems since the styles are applied in the order they appear.
+                            However, since the requirement here is to contain all styling in one document I will
+                            instead
                             section off that document into sections for header, main content, and footer.
-                            The styling for the Analysis page will however be in a separate document as will the fonts.
-                            I've tried to find the source of my reset.css but I can't find it.I've had the file a long
+                            The styling for the Analysis page will however be in a separate document as will the
+                            fonts.
+                            I've tried to find the source of my reset.css but I can't find it.I've had the file a
+                            long
                             time and can't remember where or when I got it, hence no reference.
                         </p>
                         <p>
-                            We use css variables for the colors we want to use which makes it easier to change later on
+                            We use css variables for the colors we want to use which makes it easier to change later
+                            on
                             if we need to.
                         </p>
                         <h3>Header Section</h3>
                         <p>
-                            Starting with sizing the logo image to 200px.
+                            Starting with sizing the logo image to 200px. We define the size in the stylesheet even
+                            though the width is set to &quot;200&quot; in the img tag, we do that so that the much
+                            larger image used will not disturb and create some unwanted visual effects
+                            during rendering.
                             Then we make the containing header element a flexbox and chose space-between for the
-                            justify-content directive so we put logo and navigation at each end of the box.
-                            Then remvove the bullets in front of each item and set the li elements inline. Then we set
-                            their hovering response. To use more than one property in transitions see <a
+                            justify-content directive to put logo and navigation at each end of the box.
+                            Then we remvove the bullets in front of each item and set the li elements inline. Then we
+                            set
+                            their hovering response, using transition for a smoother response. To use more than one
+                            property in transitions see <a
                                 href="https://stackoverflow.com/questions/7048313/how-to-have-multiple-css-transitions-on-an-element">StackOverflow.com</a>
-                            <a href="#ref-4">[4]</a>.
+                            <a href="#ref-4">[4]</a>. We have a link to each of the two pages and two dummy links linked
+                            to the home/index page.
                         </p>
+                        <h3>Main Content Section</h3>
                         <p>
-                            Next up is the main / content section We start with the helo image and and put that in a new
-                            div element. Then we put the p element inside two new divs so that we can place it and get a
-                            faded background for the text making it stick ou a little better over the image.
-                            Then it time for the three little content cards with their images. They are already in
-                            separate sections tags that we use here instead of div tags since HTML5 has made these new
-                            semantic elements available to us. First, we will make the containing div element a flexbox
-                            so we can place the different sections as we wish. Could just as well have done this with
-                            grids. I might do another version later using grids instead of flexbox just for fun.
+                            Next up is the main / content section. We start with the
+                            helo image and and put that in a new div element. Then we put the p element inside a new
+                            divs so that we can place it and give the p element a
+                            faded background for the text, making it stick out a little better over the image.
+                            Then it's time for the three little content cards with their images. They are already in
+                            separate section tags that we use here instead of div tags since HTML5 has made these
+                            new
+                            semantic elements available to us. First, we will make the containing div element a
+                            flexbox
+                            so we can place the different sections as we wish. <span class="text-comment">Could just
+                                as
+                                well have done this with
+                                grids. I might do another version later using grids instead of flexbox just for
+                                fun.</span> Flexbox is by default set to row so no real need for using
+                            flex-direction
+                            here <a href="#ref-5">[5]</a>.
+                            The cards section themselves are divide into two sections, card-image and card-text, with
+                            div elements. We create the rounded effect of the image part with a border-radius set to 50%
+                            and we make the card-image container square with a little trick using clamp() <a
+                                href="#ref-6">[6]</a>. Clamp has a decent support amongst most modern browsers from mid
+                            2020 and onwards <a href="#ref-7">[7]</a>. For this purpose I will be happy with that, for a
+                            wider audience in a production environment we would have had to include JavaScript support
+                            to accomplish the same objective. Here we make sure that the image rezises relative to the
+                            vierwport when the viewport gets smaller than 960px wide. It's set to 60% of the size of one
+                            third of the viewport width.
+                            To accomplish the overlay effect with the rounded image(s) sticking up over the helo image
+                            we use a negative margin-bottom value in the main-helo class of which will make the
+                            main-content
+                            class elements render above the helo image. OK we had to set their z-index too to layer
+                            them. Then we also but a border around the image using the same
+                            color as the background to get that upper frame effect even though it goes around the whole
+                            image.
+                        </p>
+                        <h3>Footer Section</h3>
+                        <p>
+
                         </p>
                     </section>
                 </article>
@@ -151,8 +220,25 @@
                                 https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Reference-Guide-Online-v.04-20-2021.pdf
                             </li>
                             <li id="ref-4">coreyward. "How to have multiple CSS transitions on an element?"
+                                stackoverflow.com.
                                 https://stackoverflow.com/questions/7048313/how-to-have-multiple-css-transitions-on-an-element
                                 (accessed Jan. 29, 2022).
+                            </li>
+                            <li id="ref-5">
+                                MDN "Flexbox, under the heading: Columns or rows?" developer.mozilla.org.
+                                https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox (accessed Jan.
+                                29,
+                                2022)
+                            </li>
+                            <li id="ref-6">
+                                "clamp()" developer.mozilla.org.
+                                https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() (accessed Jan. 29,
+                                2022)
+                            </li>
+                            <li id="ref-7">
+                                "Can I use clamp? under section types: clamp()" caniuse.com.
+                                https://caniuse.com/?search=clamp (accessed Jan. 29,
+                                2022)
                             </li>
                         </ol>
                     </div>
