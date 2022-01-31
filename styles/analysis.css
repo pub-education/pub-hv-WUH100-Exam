@@ -15,3 +15,12 @@
   font-style: italic;
   color: var(--text-faded);
 }
+.analysis-main section {
+  margin-top: 2rem;
+}
+.analysis-main p + h3 {
+  margin-top: 1rem;
+}
+.size-1-5 {
+  font-size: 1.5em;
+}

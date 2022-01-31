@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Chris Johannesson" />
-    <meta name="description" content="Examinationsupgift WUH100 VT2022" />
+    <meta name="description" content="Examinationsupgift WUH100 VT2022 - Analysis page" />
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <title>Chris Johannesson</title>
 </head>
@@ -15,7 +15,7 @@
         <div class="content-wrapper">
             <header class="page-header">
                 <div class="logo">
-                    <img src="images/chris johannesson.png" alt="Text Chris Johannesson" width="200" />
+                    <img src="images/chrisjohannesson.png" alt="Text Chris Johannesson" width="200" />
                 </div>
                 <nav class="navigation">
                     <!--
@@ -32,14 +32,21 @@
             <main class="analysis-main">
                 <article>
                     <h1>Process analysis</h1>
-                    <p>Much of what I write is from experience and even though I of course learned it from various
+                    <p>
+                        Much of what I write is from experience and even though I of course learned it from various
                         sources it was a long time ago and impossible to remember where it all came from. However,
-                        things that I look up and take from books during the process now I will provide references
-                        to.
+                        things that I look up and take from books during the process now I will provide references to.
                     </p>
                     <section>
                         <h2>HTML layout</h2>
                         <h3>Overview</h3>
+                        <p>
+                            We will use two font stacks one serif based for headings and one sans-serif based for all
+                            other text. For header we use a stack consisting of Bree Serif from google fonts, Times New
+                            Roman, Times, and serif as a fallback to browser default serif font. For all other elements
+                            the fot sack looks like this: MuseoSans_500 loaded from local files from server, Verdana,
+                            Geneva, Tahoma, and sans-serif as a fallback to browser default sans-serif font.
+                        </p>
                         <p>
                             Using the provided modeled layout we have three sections a header, main, and footer. So,
                             we
@@ -202,9 +209,47 @@
                         </p>
                         <h3>Footer Section</h3>
                         <p>
-
+                            We use flexbox here too for controlling the layout because it's pretty easy and we don't
+                            have to make any advanced stylings for it. We add a little padding and a margin at the top
+                            removes the bullets from list elements and a little background collor and we're done. While
+                            I was writing a comment for the footer element I remembered something I've used many times
+                            before using &quot;mailto:&quot; with emails. So I looked it up on MDN and also found
+                            &quot;tel:&quot; that I also included <a href="#ref-8">[8]</a>. I found an explanation for
+                            tel: interesting for me since I've never used it, as far as I can remember, before even
+                            though it's old too at a blog <a href="#ref-9">[9]</a>.
+                        </p>
+                        <h3>Making the pages Responsive</h3>
+                        <p>
+                            We start by looking at what the requirements are. Here it says at least one breakpoint. So I
+                            think we set two. We already have one size defined and that is 960px which is the width of
+                            our content wrapper. So we don't need to bother about larger screens the content will only
+                            be 960px wide anyhow. Smaller sizes we take a look and see where things starts happening. It
+                            looks OK down to 650px so we set our first breakpoint there. This is only for the helo text.
+                            The rest can survive down to 600px where we put our second breakpoint which will be our main
+                            breakpoint towards mobile devices. The content should be OK down to a width of 300px.
+                        </p>
+                        <p>
+                            I've chosen a different approach than the one suggested in the mobile layout provided and
+                            instead made the menu display as a list and kept the logo to the left and not centered as
+                            depictedin the model. To make the logo display on top of the menu you simply change the
+                            flex-direction to column and in this case the logo will be on top because of the order of
+                            the elements in the html document. It would be a nice touch to set the justify-conent to
+                            flex-start and the align-items attribute to center. If necessary I can re-write it using
+                            that if my solution isn't satisfactory. We could also have made the footer content lin-up on
+                            top of each other instead of changing font sizes, but we'll save that for another day.
+                        </p>
+                        <h3>Printing</h3>
+                        <p>
+                            For printing we don't need the helo text or image nor do we need the menu. The footer on the
+                            other hand might be useful. We set display none on both nav and the main-helo class so they
+                            will disappear from the rendering. We had to use !important on the nav to make that
+                            disappear but since it's only a simple change only for print I deem it acceptable. Some
+                            pointer and ideas came from <a
+                                href="https://www.sitepoint.com/css-printer-friendly-pages/">Craig Buckler's</a> artcle
+                            on sitepoint.com <a href="#ref-10">[10]</a>.
                         </p>
                     </section>
+
                 </article>
 
                 <section>
@@ -213,7 +258,7 @@
                         <ol class="reference-list">
                             <li id="ref-1">"Can I use... Support tables for HTML5, CSS3, etc" caniuse.com.
                                 https://caniuse.com/?search=html5 (accessed Jan. 28, 2022).</li>
-                            <li id="ref-1">Tanner. "HTML numbering with brackets" stackoverflow.com.
+                            <li id="ref-2">Tanner. "HTML numbering with brackets" stackoverflow.com.
                                 https://stackoverflow.com/questions/22530982/html-numbering-with-brackets (accessed
                                 Jan. 28, 2022).</li>
                             <li id="ref-3">"IEEE REFERENCE GUIDE" V 01.29.2021 available on
@@ -239,6 +284,19 @@
                                 "Can I use clamp? under section types: clamp()" caniuse.com.
                                 https://caniuse.com/?search=clamp (accessed Jan. 29,
                                 2022)
+                            </li>
+                            <li id="ref-8">
+                                "&lt;a&gt;: The Anchor element" developer.mozilla.org.
+                                https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a (accessed Jan. 31, 2022)
+                            </li>
+                            <li id="ref-9">
+                                "Using URL Scheme for Telephone Numbers in HTML" blog.mrhaki.com.
+                                https://blog.mrhaki.com/2012/12/using-url-scheme-for-telephone-numbers.html (accessed
+                                Jan. 31, 2022)
+                            </li>
+                            <li id="ref-10">
+                                Craig Buckler "How to Create Printer-friendly Pages with CSS" sitepoint.com.
+                                https://www.sitepoint.com/css-printer-friendly-pages/ (accessed Jan. 31, 2022)
                             </li>
                         </ol>
                     </div>

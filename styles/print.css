@@ -1,0 +1,28 @@
+@media print {
+  header {
+    justify-content: center;
+  }
+  /* This is to center the logo on the page. */
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+  .main-helo {
+    display: none;
+  }
+  nav {
+    /* none !important needed for browsers to remove nav element. */
+    display: none !important;
+  }
+  /* Sets a little margin at the top */
+  .main-content {
+    margin-top: 1rem;
+  }
+  /* 
+  We don't need  box shadow when we print and we want the content to take up the full width, with print margins of course, of the page's width.
+  */
+  .content-wrapper {
+    box-shadow: none;
+    width: 100%;
+  }
+}

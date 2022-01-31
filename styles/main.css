@@ -11,6 +11,9 @@ This document is the main stylesheet and will be sectioned into common styles, h
   --nav-hover-color: #130f40;
 }
 
+/*
+We specify our default font, font-size, font-weight, and text color that should be applied throughout the document.
+*/
 html {
   font-family: "MuseoSans_500", Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
@@ -18,7 +21,7 @@ html {
   color: var(--text-color);
 }
 /* Here we set the width of the content area and make it reactive from the start. At 960px width and lower it will fill out the entire width down to 10px.
-We also use box-shadow with offset x and y to zero and a blur radius of 3px to create a soft contour around the content area. 
+We also use box-shadow with offset x and y to zero and a blur radius of 3px to create a soft contour around the content area. We also wrap all our content in a flexbox, set the direction elements will be rendered in to a column instead of row that is the default. Then we tell it to start rendering them at the start of elements with the class content-wrapper.
 */
 .content-wrapper {
   background-color: var(--content-bg-color);
@@ -28,6 +31,9 @@ We also use box-shadow with offset x and y to zero and a blur radius of 3px to c
   flex-direction: column;
   justify-content: flex-start;
 }
+/*
+  Here we set all header elements to use the font Bree Serif or Times New Roman, Times or as a last resort Browser default font for the serif type.
+*/
 h1,
 h2,
 h3,
@@ -37,6 +43,10 @@ h6 {
   font-family: "Bree Serif", "Times New Roman", Times, serif;
 }
 
+/* 
+  This section sets the document default sizes for h1, h2, and h3 elements.
+  We don't bother with h4, h5, and h6 since we are not going to use them on this occation. Otherwise they would have been set here too.
+*/
 h1 {
   font-size: 2rem;
 }
@@ -46,33 +56,36 @@ h2 {
 h3 {
   font-size: 1.2rem;
 }
-/* Using flexbox for centering the content on the page */
+hr {
+  margin: 1rem;
+}
+/* 
+  We are using flexbox here to make centering the entire content including header and footer horizonatly on the page and while we're at it we also set the background color that will be visible outside the width of the content section when the viewport width is greater than 960px.
+*/
 .page-wrapper {
   background-color: var(--site-bg-color);
   display: flex;
   justify-content: center;
 }
 
-/* Header Section START */
+/* ***** Header Section START ***** */
 /*
-Set up the containing element for the header as fexbox and give it a little padding.
+Set up the containing element for the header as flexbox and give it a little padding, and a background color.
 */
 header {
   background-color: var(--header-bg-color);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
   padding: 1rem 2rem;
 }
-.logo img {
-  width: 200px;
+.logo {
+  width: clamp(100px, 50%, 200px);
 }
 /* Using flexbox to vertically center the menu in the header */
 .navigation {
   display: flex;
   align-items: center;
-  /* z-index: 100; */
 }
 /* 
 creating a smoother transition between the hovered and normal state and removing the underline on the link because I don't like it.
@@ -97,9 +110,12 @@ creating a smoother transition between the hovered and normal state and removing
   margin-right: 0.5em;
 }
 
-/* Header Section END */
+/* ***** Header Section END ***** */
 
-/* Main Section START */
+/* ***** Main Section START ***** */
+/*
+  Using a radius of 50% of a square produces a circle which is what we want we hide the overflow and put a border around the image. Using the same variable in both width and height makes them change the same way, here we use vw for viewport width. We also want this to be displayed above the helo image hence the higher z-index.
+*/
 .card-image {
   border-radius: 50%;
   overflow: hidden;
@@ -108,10 +124,13 @@ creating a smoother transition between the hovered and normal state and removing
   height: clamp(20px, calc(100vw / 3 * 0.6), calc(960px / 3 * 0.6));
   z-index: 100;
 }
+
+/*
+  We set the top margin to a negative value to move the shadowed border up towards the middle of the rounded image as it is depicted in the model. We give the element some padding on all sides but the top.
+*/
 .card-text {
   margin-top: -5em;
   padding: 0 0.5rem 0.5rem 0.5rem;
-  z-index: 50;
 }
 /* Container for the three columns. */
 .main-content {
@@ -132,6 +151,9 @@ creating a smoother transition between the hovered and normal state and removing
 .main-content section div p {
   margin-bottom: 0.5em;
 }
+/*
+  Makes sure we have a distance between the image in the card and where the first line of tet appears. If this would haev been 0 the text would have partially been hidden underneath the image.
+*/
 .main-content section div p:first-child {
   margin-top: 8em;
 }
@@ -139,14 +161,15 @@ creating a smoother transition between the hovered and normal state and removing
 .main-content section div p:last-child {
   margin-bottom: 0px;
 }
-/* we set the position here to relative so that we can place the text section on top of the image. */
+/* we set the position here to relative so that we can place the text section on top of the image. and we assing it a low z-index. We also use a negative bottom margin to enable the rounded images to cover parts of the lower area of the helo image.
+*/
 .main-helo {
   position: relative;
   margin-bottom: -3rem;
   z-index: 0;
 }
 /*
-Set this positioning to absolute so we can move it on top of the helo image. We position it in the top and right corner of the containing div. Then we make it a flebox so we easily can center the content. We also make sure that it keeps a width of 50% of the containing element at all viewport sizes.
+Set this positioning to absolute so we can move it on top of the helo image. We position it in the top and right corner of the containing div and sizing it so that it covers the right half of the container. We then use flexbox to center the content in x and y.
 */
 .main-helo-text {
   position: absolute;
@@ -159,7 +182,7 @@ Set this positioning to absolute so we can move it on top of the helo image. We 
   width: clamp(10px, 50%, 50%);
 }
 /* 
-We set a little larger font size align the text to the center and move it on top of the containing element. Then we make it somewhat transparent with the alpha value of the rgba value. We also give it rounded corners and make sure it will never be closer to the right side than 5% of the containing elements width.
+We set a little larger font size align the text to the center and move it on top of the containing element. Then we make it somewhat transparent with the alpha value of the rgba value. We also give it rounded corners and make sure it will never be closer to the sides than 5% of the containing elements width.
 */
 .main-helo-text p {
   padding: 1em 1em;
@@ -170,14 +193,138 @@ We set a little larger font size align the text to the center and move it on top
   margin-left: 5%;
   margin-right: 5%;
 }
-.section > {
-  border-radius: 50%;
-}
+
+/*
+  We will use this bolder text for the cards abstract text.
+*/
 .text-abstract {
   font-weight: 700;
 }
-/* Main Section END */
+/* ***** Main Section END ***** */
 
-/* Footer Section START */
+/* ***** Footer Section START ***** */
+/*
+  Using flexbox for footer layout. Spaces elements evenly across the content section's bottom. Using padding to provide height and to vertically center content in the footer. Then we set the background color.
+*/
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: var(--footer-bg-color);
+}
+/*
+Let's make the headings a little bolder only for visual effect.
+*/
+footer h3 {
+  font-weight: 700;
+}
+/* 
+  Remove the bullets for the list items just as we did in the navigation section and adding a little distance to each heading.
+*/
+footer ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+/*
+  Removing the default anchor element style and reset it to the same stile the rest of the text has in the footer. I think it looks nicer and I never really cared too much for the change of color on a elements anyhow. We're using the same styling here as we did in the menu. However, instead of writing it as a general rule for anchor elements we separate them so that we easily can make changes if that would become necessary in the future.
+*/
+footer a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 700ms 20ms, font-weight 700ms 20ms;
+}
+font a:hover {
+  color: var(--nav-hover-color);
+  font-weight: 700;
+}
 
-/* Footer Section END */
+/* ***** Footer Section END ***** */
+
+/* ***** Media Section START ***** */
+/*
+  This break point was necessary since the main-helo-text soon will start to disappear underneath the third section image.
+*/
+@media screen and (max-width: 650px) {
+  .main-helo-text p {
+    font-size: 1rem;
+  }
+}
+/*
+  Our main breakpoint towards mobile devices.
+*/
+@media screen and (max-width: 600px) {
+  /*
+    Change the font size for the whole section and make the h3 element relative to the new local size instead of the document default size defined in the html directive.
+  */
+  footer {
+    font-size: 12px;
+  }
+  footer h3 {
+    font-size: 1.2em;
+  }
+  header {
+    font-size: 12px;
+  }
+  /*
+    Here we set the order in which the sections are displayed in the column. We also make sure that the second section, previous middle section now is at the top of the order as was requested. Then I chosed to put the first section last, not for any other reason than that I could.
+  */
+  .main-col-1 {
+    order: 3;
+  }
+  .main-col-2 {
+    order: 1;
+  }
+  .main-col-3 {
+    order: 2;
+  }
+  /*
+    We change the layout in the flexbox to column from row.
+  */
+  .main-content {
+    flex-direction: column;
+  }
+  /*
+    We make the gap between the image and the text in each section narrower.
+  */
+  .main-content section div p:first-child {
+    margin-top: 5em;
+  }
+}
+/*
+  We make the menu a list so we can keep the size of the text which makes it easier to read.
+*/
+@media screen and (max-width: 550px) {
+  .navigation ul li {
+    display: list-item;
+  }
+}
+/*
+  The following is just changes of font sizes so that things don't break.
+  In some cases you could have chosen a different approach with changing positions or directions of e.g. the footer displaying that as a column instead similar to the above change for the navigation.
+*/
+@media screen and (max-width: 470px) {
+  header {
+    font-size: 0.8rem;
+  }
+  footer {
+    font-size: 0.8rem;
+  }
+  .main-helo-text p {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  footer {
+    font-size: 0.6rem;
+  }
+  .main-helo-text p {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .main-helo-text p {
+    font-size: 0.5rem;
+  }
+}

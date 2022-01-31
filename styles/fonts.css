@@ -1,35 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 
 @font-face {
-  font-family: Prociono-regular;
-  src: url("../fonts/Prociono-Regular.otf") format("otf"),
-    url("../fonts/Prociono-Regular-webfont.ttf") format("ttf"),
-    url("../fonts/Prociono-Regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: MuseoSans_500;
   src: url("../fonts/MuseoSans_500.otf") format("otf"),
     url("../fonts/MuseoSans_500-webfont.woff2") format("woff2"),
     url("../fonts/MuseoSans_500-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: ArialBold;
-  src: local("Arial Black"), url("../fonts/ariblk.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Bree;
-  src: url("../fonts/breeserif-regular-webfont.woff2") format("woff"),
-    url("../fonts/breeserif-regular-webfont.woff") format("woff"),
-    url("../fonts/BreeSerif-Regular.otf") format("otf");
   font-weight: normal;
   font-style: normal;
 }
